@@ -1,0 +1,2 @@
+../Core/Src/error.c:14:7:error_throw	3
+../Core/Src/error.c:26:9:error_catch	3

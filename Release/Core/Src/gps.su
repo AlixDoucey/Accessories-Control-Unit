@@ -1,0 +1,13 @@
+../Core/Src/gps.c:46:6:GNSS_Init	0	static
+../Core/Src/gps.c:102:6:GNSS_GetUniqID	8	static
+../Core/Src/gps.c:112:6:GNSS_GetNavigatorData	8	static
+../Core/Src/gps.c:122:6:GNSS_GetPOSLLHData	8	static
+../Core/Src/gps.c:132:6:GNSS_GetPVTData	8	static
+../Core/Src/gps.c:143:6:GNSS_ParseUniqID	0	static
+../Core/Src/gps.c:153:6:GNSS_SetMode	0	static
+../Core/Src/gps.c:199:6:GNSS_ParsePVTData	16	static
+../Core/Src/gps.c:262:6:GNSS_ParseNavigatorData	0	static
+../Core/Src/gps.c:278:6:GNSS_ParsePOSLLHData	0	static
+../Core/Src/gps.c:70:6:GNSS_ParseBuffer	16	static
+../Core/Src/gps.c:317:6:GNSS_LoadConfig	8	static
+../Core/Src/gps.c:337:9:GNSS_Checksum	12	static

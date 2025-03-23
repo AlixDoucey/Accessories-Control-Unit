@@ -1,0 +1,12 @@
+../Core/Src/driveByWire.c:27:6:initThrottle	2
+../Core/Src/driveByWire.c:39:7:throttleNormalizePosition	3
+../Core/Src/driveByWire.c:49:7:throttleGetPosition	2
+../Core/Src/driveByWire.c:63:6:throttleCalibrate	1
+../Core/Src/driveByWire.c:68:6:throttleTryRecalibrate	1
+../Core/Src/driveByWire.c:77:6:delayMicroseconds	2
+../Core/Src/driveByWire.c:85:7:absf	2
+../Core/Src/driveByWire.c:94:6:stepperSetDirection	1
+../Core/Src/driveByWire.c:98:6:stepperRotateToStep	4
+../Core/Src/driveByWire.c:125:6:stepperStep	1
+../Core/Src/driveByWire.c:130:6:throttleBodySetPosition	1
+../Core/Src/driveByWire.c:132:6:stepperCalibrate	2

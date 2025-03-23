@@ -1,0 +1,5 @@
+../Core/Src/steeringLeds.c:28:6:ledInit	16	static
+../Core/Src/steeringLeds.c:37:6:ledSetBrightness	32	static
+../Core/Src/steeringLeds.c:53:6:ledSetColor	16	static
+../Core/Src/steeringLeds.c:64:6:ledSend	40	static
+../Core/Src/steeringLeds.c:95:6:ledUpdate	24	static

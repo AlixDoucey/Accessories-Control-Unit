@@ -1,0 +1,2 @@
+CompileFlags:
+  Remove: [-fcyclomatic-complexity]  # Remove this flag as clangd doesn't support it
