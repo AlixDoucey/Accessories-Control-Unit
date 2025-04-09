@@ -2,7 +2,7 @@ AZURE_RTOS/App/app_azure_rtos.o: ../AZURE_RTOS/App/app_azure_rtos.c \
  ../AZURE_RTOS/App/app_azure_rtos.h ../Core/Inc/app_threadx.h \
  ../Middlewares/ST/threadx/common/inc/tx_api.h \
  ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h \
- ../Core/Inc/tx_user.h ../Core/Inc/software_timer.h ../Core/Inc/main.h \
+ ../Core/Inc/tx_user.h ../Core/Inc/software_timer.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../Core/Inc/stm32h5xx_hal_conf.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h \
@@ -44,7 +44,6 @@ AZURE_RTOS/App/app_azure_rtos.o: ../AZURE_RTOS/App/app_azure_rtos.c \
 ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h:
 ../Core/Inc/tx_user.h:
 ../Core/Inc/software_timer.h:
-../Core/Inc/main.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 ../Core/Inc/stm32h5xx_hal_conf.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h:

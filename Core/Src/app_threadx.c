@@ -24,15 +24,15 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "NAU7802.h"
-#include "main.h"
-#include "software_timer.h"
-#include "tx_api.h"
-// #include "displayUpdate.h"
+#include "displayUpdate.h"
 #include "driveByWire.h"
 #include "filter.h"
 #include "gps.h"
+#include "main.h"
 #include "quickShifter.h"
+#include "software_timer.h"
 #include "steeringLeds.h"
+#include "tx_api.h"
 
 /* USER CODE END Includes */
 
@@ -86,11 +86,12 @@ VOID dummy_expiration_function(ULONG dummy_parameter) {};
 /* USER CODE END PFP */
 
 /**
- * @brief  Application ThreadX Initialization.
- * @param memory_ptr: memory pointer
- * @retval int
- */
-UINT App_ThreadX_Init(VOID *memory_ptr) {
+  * @brief  Application ThreadX Initialization.
+  * @param memory_ptr: memory pointer
+  * @retval int
+  */
+UINT App_ThreadX_Init(VOID *memory_ptr)
+{
   UINT ret = TX_SUCCESS;
   /* USER CODE BEGIN App_ThreadX_MEM_POOL */
 
@@ -100,26 +101,27 @@ UINT App_ThreadX_Init(VOID *memory_ptr) {
   tx_trace_enable(&trace_buf, TRACE_BUF_SIZE, 30);
 
   /* Create ThreadOne.  */
-  tx_thread_create(&QuickShifter_handler, "QuickShifter", QuickShifter_entry, 0x1234, QuickShifter_stack,
-                   THREAD_STACK_SIZE, 10, 10, 1, TX_AUTO_START);
-  tx_thread_create(&DriveByWire_handler, "DriveByWire", DriveByWire_entry, 0x1234, DriveByWire_stack, THREAD_STACK_SIZE,
-                   10, 10, 1, TX_DONT_START);
-  tx_thread_create(&Gps_handler, "Gps", Gps_entry, 0x1234, Gps_stack, THREAD_STACK_SIZE, 9, 10, 1, TX_DONT_START);
-  tx_thread_create(&DisplayUpdate_handler, "DisplayUpdate", DisplayUpdate_entry, 0x1234, DisplayUpdate_stack,
-                   THREAD_STACK_SIZE, 8, 10, 1, TX_DONT_START);
-  tx_thread_create(&SteeringLeds_handler, "SteeringLeds", SteeringLeds_entry, 0x1234, SteeringLeds_stack,
-                   THREAD_STACK_SIZE, 7, 10, 1, TX_DONT_START);
+  ret = tx_thread_create(&QuickShifter_handler, "QuickShifter", QuickShifter_entry, 0x1234, QuickShifter_stack,
+                         THREAD_STACK_SIZE, 7, 7, 1, TX_AUTO_START);
+  ret = tx_thread_create(&DriveByWire_handler, "DriveByWire", DriveByWire_entry, 0x1234, DriveByWire_stack,
+                         THREAD_STACK_SIZE, 7, 7, 1, TX_DONT_START);
+  ret = tx_thread_create(&Gps_handler, "Gps", Gps_entry, 0x1234, Gps_stack, THREAD_STACK_SIZE, 9, 9, 1, TX_DONT_START);
+  ret = tx_thread_create(&DisplayUpdate_handler, "DisplayUpdate", DisplayUpdate_entry, 0x1234, DisplayUpdate_stack,
+                         THREAD_STACK_SIZE, 8, 8, 1, TX_AUTO_START);
+  ret = tx_thread_create(&SteeringLeds_handler, "SteeringLeds", SteeringLeds_entry, 0x1234, SteeringLeds_stack,
+                         THREAD_STACK_SIZE, 9, 9, 1, TX_AUTO_START);
   /* USER CODE END App_ThreadX_Init */
 
   return ret;
 }
 
-/**
- * @brief  Function that implements the kernel's initialization.
- * @param  None
- * @retval None
- */
-void MX_ThreadX_Init(void) {
+  /**
+  * @brief  Function that implements the kernel's initialization.
+  * @param  None
+  * @retval None
+  */
+void MX_ThreadX_Init(void)
+{
   /* USER CODE BEGIN Before_Kernel_Start */
   HAL_TIM_Base_Start_IT(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_buf, ADC_BUF_LEN);
@@ -134,8 +136,6 @@ void MX_ThreadX_Init(void) {
 }
 
 /* USER CODE BEGIN 1 */
-#define MS_TO_TICKS(milliseconds) (((milliseconds) * TX_TIMER_TICKS_PER_SECOND) / 1000UL)
-
 void qs_update_sensors(filter *instShifter, filter *instLoadCell) {
   tx_thread_sleep(MS_TO_TICKS(3));
   shifter.position = shifter_getPosition(instShifter);
@@ -156,11 +156,9 @@ VOID QuickShifter_entry(ULONG intial_input) {
   }
 
   filter shifterFilter;
-  shifterFilter.pending_samples = &shifter.pending_samples;
-  filter_create(&shifterFilter, filter1, UINT16, ADC_BUF_LEN, ADC_NBR_CONVERSION, 3, adc_buf, &pending_samples);
+  filter_create(&shifterFilter, filter1, UINT16, ADC_BUF_LEN, ADC_NBR_CONVERSION, 3, adc_buf, &shifter.pending_samples);
 
   filter loadCellFilter;
-  loadCellFilter.pending_samples = &loadCell.pending_samples;
   filter_create(&loadCellFilter, filter2, INT32, LOADCELL_BUF_LEN, 1, 1, loadCell.buf, &loadCell.pending_samples);
 
   /*
@@ -237,30 +235,13 @@ VOID QuickShifter_entry(ULONG intial_input) {
 }
 
 VOID SteeringLeds_entry(ULONG intial_input) {
-  ledInit();
+  led_init();
 
-  // LEDs startup animation
   tx_thread_sleep(MS_TO_TICKS(100));
-  // Loop through the LEDs from 0 to 10
-  for (int i = 0; i < 11; i++) {
-    ledSetColor(i, colors[i][0], colors[i][1], colors[i][2]);
-    ledSend(0.4);
-    tx_thread_sleep(MS_TO_TICKS(100));
-  }
-
-  tx_thread_sleep(MS_TO_TICKS(500));
-
-  for (float i = 0.4; i >= 0; i -= 0.0025) {
-    ledSend(i);
-    tx_thread_sleep(MS_TO_TICKS(5));
-  }
+  led_startup_animation();
 
   while (1) {
-    if (dataSent == false) {
-      ledUpdate();
-      ledSend(0.4);
-      dataSent = true;
-    }
+    led_update();
     tx_thread_sleep(MS_TO_TICKS(16));
   }
 }
@@ -308,7 +289,8 @@ VOID DisplayUpdate_entry(ULONG intial_input) {
   // HAL_UARTEx_ReceiveToIdle_DMA(&huart4, (uint8_t *)displayBuf, 10);
 
   while (1) {
-    tx_thread_sleep(MS_TO_TICKS(100));
+    updateDisplay();
+    tx_thread_sleep(MS_TO_TICKS(15));
   }
 }
 /* USER CODE END 1 */

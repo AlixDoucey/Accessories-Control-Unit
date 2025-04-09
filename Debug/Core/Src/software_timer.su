@@ -1,2 +1,4 @@
-../Core/Src/software_timer.c:4:6:stim_start	16	static
-../Core/Src/software_timer.c:8:10:stim_get	16	static
+../Core/Src/software_timer.c:7:6:stim_start	16	static
+../Core/Src/software_timer.c:12:6:stim_stop	16	static
+../Core/Src/software_timer.c:16:6:stim_reset	16	static
+../Core/Src/software_timer.c:20:10:stim_get	16	static

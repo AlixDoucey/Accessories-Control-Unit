@@ -91,9 +91,8 @@ float filter_process_sample(filter *inst) {
   uint8_t sample_idx = 0;
 
   if (_pending_samples != 0) {
-    if (_pending_samples > inst->adc_buf_len / inst->adc_nbr_conversion) {
+    if (_pending_samples > inst->adc_buf_len / inst->adc_nbr_conversion)
       _pending_samples %= inst->adc_buf_len / inst->adc_nbr_conversion;
-    }
     for (uint8_t i = 0; i < _pending_samples; i++) {
       sample_idx = _increment_idx(inst, sample_idx);
       output_sample = roundf(_process_sample(inst, sample_idx));

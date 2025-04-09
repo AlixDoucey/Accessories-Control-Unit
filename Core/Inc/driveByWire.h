@@ -4,11 +4,15 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-typedef struct {
+#pragma pack(1)
+
+typedef struct __attribute__((packed)) {
   uint16_t rawPosition;        // 12bits
   uint16_t calibratedPosition; // 12bits
   float position;              // normalized
 } positionSensorStruct;
+
+#pragma pack()
 
 extern positionSensorStruct throttle;
 extern uint32_t stepPwmData[];

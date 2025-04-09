@@ -5,8 +5,9 @@ EcuData ecu;
 
 void ecu_data_update() {
   if (ecu.pending_update) {
-    pending_samples = false;
+	ecu.pending_update = false;
 
+	ecu.timestamp = rx_buf_usart1[1];
     ecu.engine_status = rx_buf_usart1[3];
     ecu.map = (uint16_t)((rx_buf_usart1[6] << 8) | rx_buf_usart1[5]);
     ecu.iat = rx_buf_usart1[7];

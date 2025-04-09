@@ -39,6 +39,8 @@ extern "C" {
 extern stim shifterTimer;
 extern stim throttleTimer;
 extern stim adcTimer;
+
+#define MS_TO_TICKS(milliseconds) (((milliseconds) * TX_TIMER_TICKS_PER_SECOND) / 1000UL)
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

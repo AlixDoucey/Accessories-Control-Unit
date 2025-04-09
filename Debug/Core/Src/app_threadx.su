@@ -1,10 +1,10 @@
 ../Core/Src/app_threadx.c:85:6:dummy_expiration_function	16	static
 ../Core/Src/app_threadx.c:93:6:App_ThreadX_Init	56	static
-../Core/Src/app_threadx.c:122:6:MX_ThreadX_Init	8	static
+../Core/Src/app_threadx.c:123:6:MX_ThreadX_Init	8	static
 ../Core/Src/app_threadx.c:139:6:qs_update_sensors	16	static
 ../Core/Src/app_threadx.c:145:6:dbw_update_sensors	8	static
-../Core/Src/app_threadx.c:152:6:QuickShifter_entry	16	static
-../Core/Src/app_threadx.c:236:6:SteeringLeds_entry	32	static
-../Core/Src/app_threadx.c:265:6:DriveByWire_entry	16	static
-../Core/Src/app_threadx.c:286:6:Gps_entry	16	static
-../Core/Src/app_threadx.c:304:6:DisplayUpdate_entry	16	static
+../Core/Src/app_threadx.c:152:6:QuickShifter_entry	88	static
+../Core/Src/app_threadx.c:237:6:SteeringLeds_entry	16	static
+../Core/Src/app_threadx.c:249:6:DriveByWire_entry	16	static
+../Core/Src/app_threadx.c:270:6:Gps_entry	16	static
+../Core/Src/app_threadx.c:288:6:DisplayUpdate_entry	16	static

@@ -9,6 +9,8 @@
 #define UpShiftDeadZone 50
 #define DownShiftDeadZone 50
 
+#pragma pack(1)
+
 typedef enum __attribute__((packed)) {
   WaitingForInput = 0,
   WaitingForUpShift,
@@ -17,7 +19,7 @@ typedef enum __attribute__((packed)) {
 
 extern QuickShifterState QsState;
 
-typedef struct {
+typedef struct __attribute__((packed)) {
   float position;
   float calibratedPosition;
   uint16_t pending_samples;
@@ -25,16 +27,16 @@ typedef struct {
 
 extern shifterStruct shifter;
 
-typedef struct {
+typedef struct __attribute__((packed)) {
   uint8_t engaged;
-  uint8_t prevEngaged; // previously engaged
+  uint8_t prevEngaged;
 } gearStruct;
 
 extern gearStruct gear;
 
 #define LOADCELL_BUF_LEN 100
 
-typedef struct {
+typedef struct __attribute__((packed)) {
   int32_t buf[LOADCELL_BUF_LEN];
   float val;
   uint16_t pending_samples;
@@ -43,6 +45,8 @@ typedef struct {
 extern loadCellStruct loadCell;
 
 typedef enum __attribute__((packed)) { Success = 0, Fail } ShiftStatus;
+
+#pragma pack()
 
 extern bool gearShiftFail;
 

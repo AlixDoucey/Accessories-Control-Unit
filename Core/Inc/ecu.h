@@ -13,8 +13,11 @@
  * mapaccen  (7)
  */
 
-typedef struct {
+#pragma pack(1)
+
+typedef struct __attribute__((packed)) {
   bool pending_update;
+  uint8_t timestamp;
   uint8_t engine_status;
   uint16_t map;
   uint8_t iat;
@@ -24,6 +27,8 @@ typedef struct {
   uint16_t rpm;
   uint8_t tps;
 } EcuData;
+
+#pragma pack()
 
 extern EcuData ecu;
 extern void ecu_data_update();

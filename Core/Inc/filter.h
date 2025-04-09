@@ -11,7 +11,7 @@ extern const float filter2[7];
 
 typedef float (*sample_converter)(const void *buffer, uint8_t index);
 
-typedef enum __attribute__((packed)){
+typedef enum {
   UINT16 = 0,
   INT32,
 } buf_type;

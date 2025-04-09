@@ -2,13 +2,18 @@
 #define DISPLAY_UPDATE_H
 
 #include "driveByWire.h"
+#include "ecu.h"
 #include "quickShifter.h"
 
-typedef struct {
+#pragma pack(1)
+
+typedef struct __attribute__((packed)) {
   // Quick Shifter //
   QuickShifterState QsState; // 1 byte
   gearStruct gear;           // 2 bytes
-  shifterStruct shifter;     // 8 bytes
+
+  float shifter_position;           // 4 bytes
+  float shifter_calibratedPosition; // 4 bytes
 
   bool gearShiftFail; // 1 byte
   float loadCell;     // 4 bytes
@@ -18,10 +23,15 @@ typedef struct {
   float tps;                     // 4 bytes
 
   // Speeduino //
+  EcuData speeduino_data;
 
   // Errors //
   uint8_t err_msg_len;
-  char err_msg[50];
+  char err_msg[60];
 } DisplayData;
+
+#pragma pack()
+
+extern void updateDisplay();
 
 #endif // DISPLAY_UPDATE_H

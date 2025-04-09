@@ -1,4 +1,8 @@
 Core/Src/steeringLeds.o: ../Core/Src/steeringLeds.c \
+ ../Core/Inc/app_threadx.h ../Middlewares/ST/threadx/common/inc/tx_api.h \
+ ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h \
+ ../Core/Inc/tx_user.h ../Core/Inc/software_timer.h ../Core/Inc/ecu.h \
+ ../Core/Inc/gradient.h ../Core/Inc/software_timer.h \
  ../Core/Inc/steeringLeds.h ../Core/Inc/main.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../Core/Inc/stm32h5xx_hal_conf.h \
@@ -34,6 +38,14 @@ Core/Src/steeringLeds.o: ../Core/Src/steeringLeds.c \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h
+../Core/Inc/app_threadx.h:
+../Middlewares/ST/threadx/common/inc/tx_api.h:
+../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h:
+../Core/Inc/tx_user.h:
+../Core/Inc/software_timer.h:
+../Core/Inc/ecu.h:
+../Core/Inc/gradient.h:
+../Core/Inc/software_timer.h:
 ../Core/Inc/steeringLeds.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:

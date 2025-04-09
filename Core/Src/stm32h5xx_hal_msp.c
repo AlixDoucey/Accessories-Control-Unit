@@ -406,8 +406,8 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
     handle_GPDMA2_Channel1.Init.Direction = DMA_MEMORY_TO_PERIPH;
     handle_GPDMA2_Channel1.Init.SrcInc = DMA_SINC_INCREMENTED;
     handle_GPDMA2_Channel1.Init.DestInc = DMA_DINC_FIXED;
-    handle_GPDMA2_Channel1.Init.SrcDataWidth = DMA_SRC_DATAWIDTH_BYTE;
-    handle_GPDMA2_Channel1.Init.DestDataWidth = DMA_DEST_DATAWIDTH_BYTE;
+    handle_GPDMA2_Channel1.Init.SrcDataWidth = DMA_SRC_DATAWIDTH_HALFWORD;
+    handle_GPDMA2_Channel1.Init.DestDataWidth = DMA_DEST_DATAWIDTH_HALFWORD;
     handle_GPDMA2_Channel1.Init.Priority = DMA_LOW_PRIORITY_LOW_WEIGHT;
     handle_GPDMA2_Channel1.Init.SrcBurstLength = 1;
     handle_GPDMA2_Channel1.Init.DestBurstLength = 1;

@@ -1,5 +1,5 @@
 Core/Src/displayUpdate.o: ../Core/Src/displayUpdate.c \
- ../Core/Inc/displayUpdate.h ../Core/Inc/driveByWire.h \
+ ../Core/Inc/displayUpdate.h ../Core/Inc/driveByWire.h ../Core/Inc/ecu.h \
  ../Core/Inc/quickShifter.h ../Core/Inc/filter.h ../Core/Inc/main.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../Core/Inc/stm32h5xx_hal_conf.h \
@@ -35,9 +35,10 @@ Core/Src/displayUpdate.o: ../Core/Src/displayUpdate.c \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
- ../Core/Inc/error.h
+ ../Core/Inc/ecu.h ../Core/Inc/error.h ../Core/Inc/quickShifter.h
 ../Core/Inc/displayUpdate.h:
 ../Core/Inc/driveByWire.h:
+../Core/Inc/ecu.h:
 ../Core/Inc/quickShifter.h:
 ../Core/Inc/filter.h:
 ../Core/Inc/main.h:
@@ -75,4 +76,6 @@ Core/Src/displayUpdate.o: ../Core/Src/displayUpdate.c \
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
+../Core/Inc/ecu.h:
 ../Core/Inc/error.h:
+../Core/Inc/quickShifter.h:

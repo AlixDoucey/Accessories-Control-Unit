@@ -3,19 +3,37 @@
 
 #include "main.h"
 #include "stdbool.h"
+// clang-format off
 
-extern uint8_t colors[][3];
+extern bool led_data_sent;
 
-extern bool ledDataSentFlag;
-extern uint16_t rpm;
-extern uint8_t rxBuf1[];
-extern bool dataSent;
+#define MAX_LED 11
+#define BRIGHTNESS 0.6f
+#define GAMMA 4.0f
 
-extern void ledInit();
-extern void ledSetBrightness(const float brightness);
-extern void ledSetColor(const uint8_t LEDnum, const uint8_t red,
-                        const uint8_t green, const uint8_t blue);
-extern void ledSend(const float brightness);
-extern void ledUpdate();
+typedef struct {
+  uint8_t color[MAX_LED][3];       // GRB
+  float gamma[MAX_LED];            // Alpha
+  uint8_t final_color[MAX_LED][3]; // GRB
+  uint16_t changelog;              // BITFIELD
+} Led_data;
+
+extern void led_init();
+extern void led_reset_colors(Led_data *led);
+extern void led_set_all_brightness(const float brightness);
+extern void led_set_color(const uint8_t led_num, 
+                          const uint8_t red, 
+                          const uint8_t green, 
+                          const uint8_t blue,
+                          const float brightness);
+
+extern void led_set_solid_color(const uint8_t red, 
+                                const uint8_t green, 
+                                const uint8_t blue,
+                                const float brightness,
+                                Led_data *led);
+
+extern void led_startup_animation();
+extern void led_update();
 
 #endif // STEERING_LEDS_H

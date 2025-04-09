@@ -1,8 +1,8 @@
 Core/Src/app_threadx.o: ../Core/Src/app_threadx.c \
  ../Core/Inc/app_threadx.h ../Middlewares/ST/threadx/common/inc/tx_api.h \
  ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h \
- ../Core/Inc/tx_user.h ../Core/Inc/software_timer.h ../Core/Inc/main.h \
- ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
+ ../Core/Inc/tx_user.h ../Core/Inc/software_timer.h ../Core/Inc/NAU7802.h \
+ ../Core/Inc/main.h ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../Core/Inc/stm32h5xx_hal_conf.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h \
@@ -36,15 +36,17 @@ Core/Src/app_threadx.o: ../Core/Src/app_threadx.c \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
- ../Core/Inc/NAU7802.h ../Core/Inc/main.h ../Core/Inc/software_timer.h \
- ../Core/Inc/driveByWire.h ../Core/Inc/filter.h ../Core/Inc/gps.h \
+ ../Core/Inc/displayUpdate.h ../Core/Inc/driveByWire.h ../Core/Inc/ecu.h \
  ../Core/Inc/quickShifter.h ../Core/Inc/filter.h \
- ../Core/Inc/steeringLeds.h
+ ../Core/Inc/driveByWire.h ../Core/Inc/filter.h ../Core/Inc/gps.h \
+ ../Core/Inc/main.h ../Core/Inc/quickShifter.h \
+ ../Core/Inc/software_timer.h ../Core/Inc/steeringLeds.h
 ../Core/Inc/app_threadx.h:
 ../Middlewares/ST/threadx/common/inc/tx_api.h:
 ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h:
 ../Core/Inc/tx_user.h:
 ../Core/Inc/software_timer.h:
+../Core/Inc/NAU7802.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 ../Core/Inc/stm32h5xx_hal_conf.h:
@@ -80,12 +82,15 @@ Core/Src/app_threadx.o: ../Core/Src/app_threadx.c \
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
-../Core/Inc/NAU7802.h:
-../Core/Inc/main.h:
-../Core/Inc/software_timer.h:
+../Core/Inc/displayUpdate.h:
+../Core/Inc/driveByWire.h:
+../Core/Inc/ecu.h:
+../Core/Inc/quickShifter.h:
+../Core/Inc/filter.h:
 ../Core/Inc/driveByWire.h:
 ../Core/Inc/filter.h:
 ../Core/Inc/gps.h:
+../Core/Inc/main.h:
 ../Core/Inc/quickShifter.h:
-../Core/Inc/filter.h:
+../Core/Inc/software_timer.h:
 ../Core/Inc/steeringLeds.h:
